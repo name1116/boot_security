@@ -1,0 +1,30 @@
+<!-- welcome.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Join</title>
+</head>
+<body>
+    <h1>Join</h1>
+	<!-- post -> spring boot로 요청을 보내면 ... csrf -->
+	<!-- 지금 우리가 만든 홈페이지에서 요청을 보낸게 맞아? -->
+	<!-- th:action -> csrf -->
+    <form th:action="@{/join}" method="post" th:object="${member}"> 
+		
+		<div>
+			Username : <input th:field="*{username}" required>
+		</div>
+		
+		<div>
+			Email : <input th:field="*{email}" type="email" required>
+		</div>
+		
+		<div>
+			Password : <input th:field="*{password}" type="password" required>
+		</div>
+		
+		<button>가입</button>
+		
+	</form>
+</body>
+</html>

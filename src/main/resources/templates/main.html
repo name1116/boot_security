@@ -1,0 +1,40 @@
+<!-- welcome.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Main</title>
+</head>
+
+<body>
+	<h1>Main</h1>
+	<div th:if="${user != null}">
+		<p th:text="${user.username}"></p>
+		<p th:text="${user.email}"></p>
+		<p th:text="${user.role}"></p>
+		<p th:text="${user.memberId}"></p>
+
+
+	</div>
+
+	<form th:action="@{/change}" method="post">
+		<input type="hidden" name="role" value="premium">
+		<button>프리미엄</button>
+	</form>
+
+	<form th:action="@{/change}" method="post">
+		<input type="hidden" name="role" value="user">
+		<button>일반</button>
+	</form>
+
+	<form th:action="@{/change}" method="post">
+		<input type="hidden" name="role" value="free">
+		<button>체험</button>
+	</form>
+	<a href="/premium/insideout2">프리미엄 : 인사이드 아웃 2</a>
+	<a href="/user/elemental">일반 : 엘리멘탈</a>
+	<a href="/free/insideout">체험 : 인사이드 아웃 </a>
+	<a href="/logout">Logout</a>
+</body>
+
+</html>
